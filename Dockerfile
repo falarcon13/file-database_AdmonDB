@@ -14,11 +14,22 @@ ENV MYSQL_ROOT_PASSWORD=C0ntrol1*
 EXPOSE 3306
 
 # ------------------------------ POSTGRES ----------------------------------------
-# FROM
-# ENV
-# EXPOSE
+FROM postgres:latest AS PostgreSQL
+
+ENV POSTGRES_USER=falarcon
+ENV POSTGRES_PASSWORD=$0p0rte
+
+EXPOSE 5432
 
 # ------------------------------ ORACLE ------------------------------------------
-# FROM
-# ENV
-# EXPOSE
+# Version 9 es la estable
+
+FROM oraclelinux:9
+
+# Establecer las variables
+ENV ORACLE_SID=ORCLCDB
+ENV ORACLE_PDB=PDB1
+ENV ORACLE_CHARACTERSET=AL32UTF8
+ENV ORACLE_PASSWORD=$0p0rte
+
+EXPOSE 1521
